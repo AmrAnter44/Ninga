@@ -1,8 +1,10 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity } from 'lucide-react';
+import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity, MessageCircle } from 'lucide-react';
 import heroImage from '../../public/bg.webp';
 import Image from 'next/image';
+import SplashScreen from './SplashScreen';
+
 // ============================================
 // SCROLL ANIMATION HOOK
 // ============================================
@@ -36,6 +38,51 @@ const useScrollAnimation = () => {
 };
 
 // ============================================
+// WHATSAPP FLOATING BUTTON
+// ============================================
+const WhatsAppButton = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // بعد 2 ثانية من تحميل الصفحة، البوتن تظهر
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleWhatsAppClick = () => {
+    // غير الرقم ده برقمك (بدون + أو مسافات)
+    const phoneNumber = "201234567890"; // مثال: 201234567890
+    const message = "مرحباً! عايز أعرف أكتر عن تدريبات NINGA MMA";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  return (
+    <button
+      onClick={handleWhatsAppClick}
+      className={`fixed bottom-6 right-6 bg-red-500 hover:bg-red-600 p-4 rounded-full shadow-2xl z-50 transition-all duration-500 group ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+      }`}
+      aria-label="Contact us on WhatsApp"
+    >
+      {/* الأنيميشن pulse */}
+      <div className="absolute inset-0 bg-red-400 rounded-full animate-ping opacity-75"></div>
+      
+      {/* الأيقونة */}
+      <MessageCircle className="w-7 h-7 text-white relative z-10 group-hover:scale-110 transition-transform" />
+      
+      {/* الـ tooltip */}
+      <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-zinc-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        whatsapp
+      </span>
+    </button>
+  );
+};
+
+// ============================================
 // NAVBAR COMPONENT
 // ============================================
 const Navbar = () => {
@@ -56,13 +103,11 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <div className="flex items-center gap-2">
             <Flame className="w-8 h-8 text-red-500" />
             <span className="text-xl font-bold">NINGA <span className="text-red-500">MMA</span></span>
           </div>
           
-          {/* Desktop Menu */}
           <div className="hidden md:flex gap-8">
             <a href="#services" className="hover:text-red-500 transition">Training</a>
             <a href="#program" className="hover:text-red-500 transition">Programs</a>
@@ -70,12 +115,10 @@ const Navbar = () => {
             <a href="#contact" className="hover:text-red-500 transition">Contact</a>
           </div>
 
-          {/* CTA Button */}
           <button className="hidden md:block bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition transform hover:scale-105">
             Join Now
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden"
@@ -85,7 +128,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-zinc-900 border-t border-zinc-800 animate-slideDown">
           <div className="px-4 py-6 space-y-4">
@@ -109,23 +151,19 @@ const Navbar = () => {
 const HeroSection = () => {
   return (
     <section className="relative pt-32 pb-20 px-4 min-h-screen overflow-hidden">
-      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-<Image 
-  src={heroImage}
-  alt="MMA Fighter"
-  fill
-  className="object-cover"
-  priority
-/>
-        {/* Dark Overlay for better text readability */}
+        <Image 
+          src={heroImage}
+          alt="MMA Fighter"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/70"></div>
       </div>
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0  z-10"></div>
+      <div className="absolute inset-0 z-10"></div>
       
-      {/* Content */}
       <div className="max-w-7xl mx-auto relative z-20">
         <div className="max-w-3xl">
           <div className="inline-block bg-red-500/20 backdrop-blur-sm border border-red-500/30 px-4 py-2 rounded-full text-red-400 font-semibold mb-6 animate-fadeIn">
@@ -233,7 +271,6 @@ const ProblemSolutionSection = () => {
     <section className="py-20 px-4" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Problem - Slide from Right */}
           <div className={`space-y-6 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
           }`}>
@@ -251,7 +288,6 @@ const ProblemSolutionSection = () => {
             </p>
           </div>
 
-          {/* Solution - Slide from Left */}
           <div className={`bg-gradient-to-br from-red-500/20 to-orange-500/20 p-8 rounded-2xl border border-red-500/30 space-y-6 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
           }`} style={{transitionDelay: '0.2s'}}>
@@ -494,77 +530,95 @@ const Footer = () => {
 // MAIN APP COMPONENT
 // ============================================
 export default function NINGAMMALanding() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // بعد 3 ثواني، الـ loading يختفي
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
-      <style>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 1s ease-out;
-        }
-
-        .animate-slideInLeft {
-          animation: slideInLeft 1s ease-out;
-          animation-fill-mode: both;
-        }
-
-        .animate-slideInRight {
-          animation: slideInRight 1s ease-out;
-          animation-fill-mode: both;
-        }
-
-        .animate-slideDown {
-          animation: slideDown 0.3s ease-out;
-        }
-      `}</style>
+    <>
+      {isLoading && <SplashScreen />}
       
-      <Navbar />
-      <HeroSection />
-      <ServicesSection />
-      <ProblemSolutionSection />
-      <ProgramSection />
-      <TestimonialsSection />
-      <Footer />
-    </div>
+      <div className="min-h-screen bg-zinc-950 text-white">
+        <style>{`
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          @keyframes slideInLeft {
+            from {
+              opacity: 0;
+              transform: translateX(-50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
+          @keyframes slideInRight {
+            from {
+              opacity: 0;
+              transform: translateX(50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
+          @keyframes slideDown {
+            from {
+              opacity: 0;
+              transform: translateY(-20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-fadeIn {
+            animation: fadeIn 1s ease-out;
+          }
+
+          .animate-slideInLeft {
+            animation: slideInLeft 1s ease-out;
+            animation-fill-mode: both;
+          }
+
+          .animate-slideInRight {
+            animation: slideInRight 1s ease-out;
+            animation-fill-mode: both;
+          }
+
+          .animate-slideDown {
+            animation: slideDown 0.3s ease-out;
+          }
+        `}</style>
+        
+        <Navbar />
+        <HeroSection />
+        <ServicesSection />
+        <ProblemSolutionSection />
+        <ProgramSection />
+        <TestimonialsSection />
+        <Footer />
+        
+        {/* WhatsApp Button */}
+        <WhatsAppButton />
+      </div>
+    </>
   );
 }
