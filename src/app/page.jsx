@@ -104,8 +104,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
-            <Flame className="w-8 h-8 text-red-500" />
-            <span className="text-xl font-bold">NINGA <span className="text-red-500">MMA</span></span>
+            <Image src="/logo.png" alt="Logo" width={40} height={40}></Image>
+            <span className="text-xl font-bold">NINGA</span>
           </div>
           
           <div className="hidden md:flex gap-8">
