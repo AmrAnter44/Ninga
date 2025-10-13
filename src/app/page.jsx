@@ -268,7 +268,7 @@ const ProblemSolutionSection = () => {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section className="py-20 px-4" ref={ref}>
+    <section className="py-20 px-4 overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className={`space-y-6 transition-all duration-1000 ${
@@ -408,74 +408,7 @@ const ProgramSection = () => {
   );
 };
 
-// ============================================
-// TESTIMONIALS SECTION
-// ============================================
-const TestimonialsSection = () => {
-  const [ref, isVisible] = useScrollAnimation();
 
-  const testimonials = [
-    {
-      name: "Marcus Chen",
-      role: "Amateur Fighter",
-      content: "I went from zero experience to winning my first amateur bout in 6 months. The coaches here are legit - they've been in the cage and know exactly what it takes.",
-      rating: 5,
-      delay: "0s"
-    },
-    {
-      name: "Isabella Rodriguez",
-      role: "BJJ Blue Belt",
-      content: "The grappling program is insane. I've learned more in 3 months here than 2 years at my old gym. The live rolling sessions are addictive!",
-      rating: 5,
-      delay: "0.2s"
-    },
-    {
-      name: "David Thompson",
-      role: "Fitness Enthusiast",
-      content: "I just wanted to get in shape, but now I'm obsessed with MMA. Lost 30 pounds and gained skills I never thought possible. This place changes lives.",
-      rating: 5,
-      delay: "0.4s"
-    }
-  ];
-
-  return (
-    <section id="testimonials" className="py-20 px-4" ref={ref}>
-      <div className="max-w-7xl mx-auto">
-        <div className={`text-center mb-16 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Fighter Testimonials</h2>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Hear from our students who transformed from beginners to confident fighters.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <div 
-              key={index}
-              className={`bg-zinc-800/50 p-6 rounded-2xl border border-zinc-700 hover:border-red-500/50 transition-all duration-1000 ${
-                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
-              }`}
-              style={{transitionDelay: isVisible ? testimonial.delay : '0s'}}
-            >
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-red-500 text-red-500" />
-                ))}
-              </div>
-              <p className="text-zinc-300 mb-6 italic">"{testimonial.content}"</p>
-              <div className="border-t border-zinc-700 pt-4">
-                <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-sm text-zinc-500">{testimonial.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ============================================
 // FOOTER SECTION
@@ -613,10 +546,10 @@ export default function NINGAMMALanding() {
         <ServicesSection />
         <ProblemSolutionSection />
         <ProgramSection />
-        <TestimonialsSection />
+
         <Footer />
         
-        {/* WhatsApp Button */}
+
         <WhatsAppButton />
       </div>
     </>
