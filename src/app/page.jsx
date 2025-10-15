@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity, MessageCircle } from 'lucide-react';
-import heroImage from '../../public/bg.webp';
+import heroImage from '../../public/bg.png';
 import Image from 'next/image';
 import SplashScreen from './SplashScreen';
 
@@ -175,18 +175,13 @@ const HeroSection = () => {
               Champion Fighter.
             </span>
           </h1>
-          <p className="text-xl text-zinc-300 mb-8 leading-relaxed animate-slideInLeft" style={{animationDelay: '0.2s'}}>
-            Step into the octagon of life with confidence. Master striking, grappling, and conditioning 
-            under world-class MMA coaches. Whether you're a beginner or seasoned fighter, we'll push you beyond your limits.
-          </p>
+
           <div className="flex flex-col sm:flex-row gap-4 animate-slideInLeft" style={{animationDelay: '0.4s'}}>
-            <button className="bg-red-500 hover:bg-red-600 px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-2 transition group transform hover:scale-105">
+            <button className="bg-red-500 hover:bg-red-600 px-8 py-4 mt-60 rounded-full font-semibold text-lg flex items-center justify-center gap-2 transition group transform hover:scale-105">
               Start Training
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="border border-zinc-700 hover:border-red-500 px-8 py-4 rounded-full font-semibold text-lg transition transform hover:scale-105 backdrop-blur-sm">
-              Watch Classes
-            </button>
+
           </div>
         </div>
       </div>
@@ -413,6 +408,172 @@ const ProgramSection = () => {
 // ============================================
 // FOOTER SECTION
 // ============================================
+// ============================================
+// PRICING SECTION
+// ============================================
+const PricingSection = () => {
+  const [ref, isVisible] = useScrollAnimation();
+
+  const plans = [
+    {
+      name: "1 MONTH PACKAGE",
+      originalPrice: "1500 LE",
+      price: "1000 LE",
+      isPopular: false,
+      features: [
+        "Follow-up for 4 days on all inquiries through WhatsApp",
+        "Training Program: A customized training program via videos",
+        "Customized Nutrition Plan",
+        "Nutritional Supplements: Recommendations and discounts on supplements (optional)",
+        "Zoom Call: A video call at the beginning and end of the subscription",
+        "Level Test (video): A test to measure your fitness level at the start of the program"
+      ],
+      delay: "0s"
+    },
+    {
+      name: "3 MONTHS VIP",
+      originalPrice: "10000 LE",
+      price: "7000 LE",
+      isPopular: true,
+      features: [
+        "Follow-up: Daily follow-up for all inquiries via WhatsApp",
+        "Training Program: A customized training program via videos",
+        "Nutrition Plan: The nutrition plan is updated every 15 days",
+        "Nutritional Supplements: Recommendations and discounts on supplements (optional)",
+        "Zoom Call: A video call at the beginning and end of the subscription",
+        "Level Test (video): A test to measure your fitness level at the start of the program",
+        "Subscription Freeze: An option to freeze your subscription for 2 months",
+        "Zoom Meetings: 4 Zoom meetings during the month (30 minutes each)",
+        "Workout With Captain: A live workout session with Captain Mostafa Said",
+        "Preparing: Preparation for tournaments and training in different positions"
+      ],
+      delay: "0.2s"
+    },
+    {
+      name: "3 MONTHS PACKAGE",
+      originalPrice: "4000 LE",
+      price: "2500 LE",
+      isPopular: false,
+      features: [
+        "Follow-up: Daily follow-up for all inquiries via WhatsApp",
+        "Training Program: A customized training program via videos",
+        "Nutrition Plan: The nutrition plan is updated every 15 days",
+        "Nutritional Supplements: Recommendations and discounts on supplements (optional)",
+        "Zoom Call: A video call at the beginning and end of the subscription",
+        "Level Test (video): A test to measure your fitness level at the start of the program",
+        "Subscription Freeze: An option to freeze your subscription for 2 months"
+      ],
+      delay: "0.4s"
+    }
+  ];
+
+  return (
+    <section id="pricing" className="py-20 px-4 bg-zinc-900/50 relative overflow-hidden" ref={ref}>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <div className="inline-block bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full text-red-400 font-semibold mb-4">
+            💪 MEMBERSHIP PLANS
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">Fighter Path</span>
+          </h2>
+          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            Select the perfect plan to kickstart your MMA journey. From beginner to pro fighter.
+          </p>
+        </div>
+
+        {/* Pricing Cards */}
+        <div className="grid lg:grid-cols-3 gap-8 items-center">
+          {plans.map((plan, index) => (
+            <div
+              key={index}
+              className={`relative transition-all duration-1000 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              } ${plan.isPopular ? 'lg:scale-110 lg:z-10' : ''}`}
+              style={{transitionDelay: isVisible ? plan.delay : '0s'}}
+            >
+
+
+              {/* Card */}
+              <div className={`relative rounded-3xl p-8 h-full flex flex-col ${
+                plan.isPopular 
+                  ? 'bg-gradient-to-br from-red-500/20 to-orange-500/20 border-2 border-red-500 shadow-2xl shadow-red-500/20' 
+                  : 'bg-zinc-800/50 border border-zinc-700 hover:border-red-500/50'
+              } transition-all duration-300 group`}>
+                {/* Plan Name */}
+                <h3 className={`text-xl font-bold mb-4 ${plan.isPopular ? 'text-center' : ''}`}>
+                  {plan.name}
+                </h3>
+
+                {/* Pricing */}
+                <div className={`mb-6 ${plan.isPopular ? 'text-center' : ''}`}>
+                  {plan.originalPrice && (
+                    <p className="text-zinc-500 line-through text-lg mb-1">{plan.originalPrice}</p>
+                  )}
+                  <p className={`font-bold ${plan.isPopular ? 'text-5xl text-white' : 'text-4xl'}`}>
+                    {plan.price}
+                  </p>
+                </div>
+
+                {/* Features */}
+                <ul className="space-y-3 mb-8 flex-grow">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                        plan.isPopular ? 'text-red-400' : 'text-red-500'
+                      }`} />
+                      <span className={`text-sm ${plan.isPopular ? 'text-zinc-200' : 'text-zinc-400'}`}>
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA Button */}
+                <button className={`w-full py-4 rounded-full font-bold text-lg transition-all duration-300 transform group-hover:scale-105 ${
+                  plan.isPopular
+                    ? 'bg-white text-black hover:bg-zinc-200 shadow-lg'
+                    : 'bg-zinc-900 border-2 border-zinc-700 hover:border-red-500 hover:bg-zinc-800'
+                }`}>
+                  SUBSCRIBE NOW
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className={`text-center mt-16 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{transitionDelay: '0.6s'}}>
+          <p className="text-zinc-400 mb-4">
+            Not sure which plan is right for you? Let's talk about your goals.
+          </p>
+          <button className="bg-transparent border-2 border-red-500 hover:bg-red-500 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+            Schedule Free Consultation
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+  
+
+
+// ============================================
+// FOOTER SECTION
+// ============================================
 const Footer = () => {
   const [ref, isVisible] = useScrollAnimation();
 
@@ -546,7 +707,7 @@ export default function NINGAMMALanding() {
         <ServicesSection />
         <ProblemSolutionSection />
         <ProgramSection />
-
+        <PricingSection />  {/* <-- ضيف السيكشن هنا */}
         <Footer />
         
 
