@@ -54,7 +54,7 @@ const WhatsAppButton = () => {
 
   const handleWhatsAppClick = () => {
     // غير الرقم ده برقمك (بدون + أو مسافات)
-    const phoneNumber = "201234567890"; // مثال: 201234567890
+    const phoneNumber = "201155013756"; // مثال: 201234567890
     const message = "مرحباً! عايز أعرف أكتر عن تدريبات NINGA MMA";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
