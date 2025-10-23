@@ -105,7 +105,7 @@ const Navbar = () => {
           <div className="hidden md:flex gap-8">
             <a href="#services" className="hover:text-red-500 transition">Services</a>
             <a href="#program" className="hover:text-red-500 transition">Programs</a>
-            <a href="#testimonials" className="hover:text-red-500 transition">About</a>
+            <a href="#packages" className="hover:text-red-500 transition">Packages</a>
             <a href="#contact" className="hover:text-red-500 transition">Contact</a>
           </div>
 
@@ -455,7 +455,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-20 px-4 bg-zinc-900/50 relative overflow-hidden" ref={ref}>
+    <section id="packages" className="py-20 px-4 bg-zinc-900/50 relative overflow-hidden" ref={ref}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{

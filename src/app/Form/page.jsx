@@ -33,7 +33,7 @@ const FormNavbar = () => {
           <div className="hidden md:flex gap-8">
             <Link href="/#services" className="hover:text-red-500 transition">Services</Link>
             <Link href="/#program" className="hover:text-red-500 transition">Programs</Link>
-            <Link href="/#testimonials" className="hover:text-red-500 transition">About</Link>
+            <Link href="/#packages" className="hover:text-red-500 transition">packages</Link>
             <Link href="/#contact" className="hover:text-red-500 transition">Contact</Link>
           </div>
 
@@ -56,7 +56,7 @@ const FormNavbar = () => {
           <div className="px-4 py-6 space-y-4">
             <Link href="/#services" className="block hover:text-red-500 transition">Services</Link>
             <Link href="/#program" className="block hover:text-red-500 transition">Programs</Link>
-            <Link href="/#testimonials" className="block hover:text-red-500 transition">About</Link>
+            <Link href="/#packages" className="block hover:text-red-500 transition">Packages</Link>
             <Link href="/#contact" className="block hover:text-red-500 transition">Contact</Link>
             <Link href="/" className="flex items-center gap-2 justify-center w-full bg-zinc-800 hover:bg-zinc-700 px-6 py-2 rounded-full font-semibold transition">
               <ArrowLeft className="w-4 h-4" />
