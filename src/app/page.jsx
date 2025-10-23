@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity, MessageCircle, Facebook, Instagram } from 'lucide-react';
+import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity, MessageCircle, Facebook, Instagram, Dumbbell, Heart, Trophy } from 'lucide-react';
 import heroImage from '../../public/bg.png';
 import Image from 'next/image';
 import SplashScreen from './SplashScreen';
@@ -45,7 +45,6 @@ const WhatsAppButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // بعد 2 ثانية من تحميل الصفحة، البوتن تظهر
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 2000);
@@ -54,9 +53,8 @@ const WhatsAppButton = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    // غير الرقم ده برقمك (بدون + أو مسافات)
-    const phoneNumber = "201155013756"; // مثال: 201234567890
-    const message = "مرحباً! عايز أعرف أكتر عن تدريبات NINGA MMA";
+    const phoneNumber = "201155013756";
+    const message = "مرحباً! عايز أعرف أكتر عن تدريبات NINGA";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -69,13 +67,8 @@ const WhatsAppButton = () => {
       }`}
       aria-label="Contact us on WhatsApp"
     >
-      {/* الأنيميشن pulse */}
       <div className="absolute inset-0 bg-red-400 rounded-full animate-ping opacity-75"></div>
-      
-      {/* الأيقونة */}
-      <MessageCircle className="w-7 h-7 text-white relative z-10 group-hover:scale-110 transition-transForm" />
-      
-      {/* الـ tooltip */}
+      <MessageCircle className="w-7 h-7 text-white relative z-10 group-hover:scale-110 transition-transform" />
       <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-zinc-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
         whatsapp
       </span>
@@ -110,14 +103,14 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:flex gap-8">
-            <a href="#services" className="hover:text-red-500 transition">Training</a>
+            <a href="#services" className="hover:text-red-500 transition">Services</a>
             <a href="#program" className="hover:text-red-500 transition">Programs</a>
-            <a href="#testimonials" className="hover:text-red-500 transition">Fighters</a>
+            <a href="#testimonials" className="hover:text-red-500 transition">About</a>
             <a href="#contact" className="hover:text-red-500 transition">Contact</a>
           </div>
 
-          <Link href="/Form" className="hidden md:block bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition transForm hover:scale-105">
-            Join Now
+          <Link href="/Form" className="hidden md:block bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition transform hover:scale-105">
+            Start Training
           </Link>
 
           <button 
@@ -132,12 +125,12 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-zinc-900 border-t border-zinc-800 animate-slideDown">
           <div className="px-4 py-6 space-y-4">
-            <a href="#services" className="block hover:text-red-500 transition">Training</a>
+            <a href="#services" className="block hover:text-red-500 transition">Services</a>
             <a href="#program" className="block hover:text-red-500 transition">Programs</a>
-            <a href="#testimonials" className="block hover:text-red-500 transition">Fighters</a>
+            <a href="#testimonials" className="block hover:text-red-500 transition">About</a>
             <a href="#contact" className="block hover:text-red-500 transition">Contact</a>
-            <Link href="/Form" className="w-full bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition">
-              Join Now
+            <Link href="/Form" className="w-full bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition block text-center">
+              Start Training
             </Link >
           </div>
         </div>
@@ -155,7 +148,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <Image 
           src={heroImage}
-          alt="MMA Fighter"
+          alt="Professional Trainer"
           fill
           className="object-cover"
           priority
@@ -168,21 +161,23 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto relative z-20">
         <div className="max-w-3xl">
           <div className="inline-block bg-red-500/20 backdrop-blur-sm border border-red-500/30 px-4 py-2 rounded-full text-red-400 font-semibold mb-6 animate-fadeIn">
-            🥊 Professional MMA Training
+            💪 Elite Personal Training
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-slideInLeft">
-            Train Like a
+            Transform Your Body
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">
-              Champion Fighter.
+              With Elite Training.
             </span>
           </h1>
+          <p className="text-xl md:text-2xl text-zinc-300 mb-8 animate-slideInLeft" style={{animationDelay: '0.2s'}}>
+            MMA Fighter • CrossFit Trainer • Personal Trainer • Strength & Conditioning Coach
+          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-slideInLeft" style={{animationDelay: '0.4s'}}>
-            <Link href="/Form" className="bg-red-500 hover:bg-red-600 px-8 py-4 mt-60 rounded-full font-semibold text-lg flex items-center justify-center gap-2 transition group transForm hover:scale-105">
-              Start Training
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transForm" />
+            <Link href="/Form" className="bg-red-500 hover:bg-red-600 px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-2 transition group transform hover:scale-105">
+              Start Your Journey
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-
           </div>
         </div>
       </div>
@@ -199,26 +194,26 @@ const ServicesSection = () => {
   const services = [
     {
       icon: "🥊",
-      title: "Striking & Boxing",
-      description: "Master punches, kicks, elbows, and knees. Develop devastating striking combinations and knockout power.",
+      title: "MMA Training",
+      description: "Professional MMA fighter training covering striking, grappling, and fight conditioning. Train with a real fighter.",
       delay: "0s"
     },
     {
-      icon: "🤼",
-      title: "Grappling & Wrestling",
-      description: "Learn takedowns, submissions, and ground control. Dominate opponents with superior grappling techniques.",
+      icon: "💪",
+      title: "Strength & Conditioning",
+      description: "Build strength, power, and endurance with scientifically-designed programs. Transform your athletic performance.",
       delay: "0.1s"
     },
     {
-      icon: "🥋",
-      title: "Brazilian Jiu-Jitsu",
-      description: "Perfect the art of submissions and positional control. Roll with the best and sharpen your ground game.",
+      icon: "🏋️",
+      title: "CrossFit Training",
+      description: "High-intensity functional fitness training. Improve your overall fitness with varied, challenging workouts.",
       delay: "0.2s"
     },
     {
-      icon: "⚡",
-      title: "Fight Conditioning",
-      description: "Build championship-level cardio, strength, and explosiveness. Train like the NINGA fighters you admire.",
+      icon: "🎯",
+      title: "Personal Training",
+      description: "Customized one-on-one training programs tailored to your specific goals, fitness level, and lifestyle.",
       delay: "0.3s"
     }
   ];
@@ -229,9 +224,9 @@ const ServicesSection = () => {
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Fight Disciplines</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Training Services</h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Complete MMA training covering all aspects of mixed martial arts. From striking to submissions.
+            Professional coaching across multiple disciplines. From MMA to functional fitness, get expert guidance every step.
           </p>
         </div>
 
@@ -244,7 +239,7 @@ const ServicesSection = () => {
               }`}
               style={{transitionDelay: isVisible ? service.delay : '0s'}}
             >
-              <div className="text-6xl mb-4 group-hover:scale-110 transition-transForm">
+              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold mb-3">{service.title}</h3>
@@ -273,14 +268,14 @@ const ProblemSolutionSection = () => {
             <div className="inline-block bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full text-red-400 font-semibold">
               ⚠️ The Problem
             </div>
-            <h2 className="text-4xl font-bold">Training Without Direction</h2>
+            <h2 className="text-4xl font-bold">Training Without Expert Guidance</h2>
             <p className="text-zinc-400 text-lg">
-              Hitting the heavy bag randomly won't make you a fighter. YouTube tutorials won't teach you 
-              real technique. Bad habits lead to injuries and wasted time in the gym.
+              Generic workout plans won't give you real results. YouTube videos can't correct your form. 
+              Training without proper coaching leads to plateaus, injuries, and wasted effort.
             </p>
             <p className="text-zinc-400 text-lg">
-              Without proper coaching, you'll plateau fast. Your cardio won't improve, your technique 
-              stays sloppy, and you'll never reach your fighting potential.
+              Without a structured program and professional oversight, you'll struggle to stay motivated, 
+              make progress, and achieve your fitness goals.
             </p>
           </div>
 
@@ -290,23 +285,23 @@ const ProblemSolutionSection = () => {
             <div className="inline-block bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full text-red-400 font-semibold">
               ✅ The Solution
             </div>
-            <h2 className="text-4xl font-bold">NINGA MMA Coaching</h2>
+            <h2 className="text-4xl font-bold">Professional Coaching</h2>
             <p className="text-zinc-300 text-lg">
-              Train under professional MMA coaches with real fight experience. Get personalized feedback, 
-              structured progressions, and a clear path from beginner to warrior.
+              Train with a certified professional across multiple disciplines. Get personalized programs, 
+              expert form corrections, and accountability that delivers real results.
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <CheckCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                <span className="text-zinc-300">Learn proper striking mechanics to prevent injuries</span>
+                <span className="text-zinc-300">Customized training programs for your specific goals</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                <span className="text-zinc-300">Master grappling fundamentals with live sparring</span>
+                <span className="text-zinc-300">Expert coaching from MMA, CrossFit, and S&C specialist</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                <span className="text-zinc-300">Build fight-ready conditioning and mental toughness</span>
+                <span className="text-zinc-300">Nutrition guidance and lifestyle coaching included</span>
               </li>
             </ul>
           </div>
@@ -325,32 +320,32 @@ const ProgramSection = () => {
   const features = [
     {
       icon: <Calendar className="w-6 h-6" />,
-      text: "Flexible class schedules for all levels",
+      text: "Flexible training schedules for all levels",
       delay: "0s"
     },
     {
-      icon: <Shield className="w-6 h-6" />,
-      text: "Pro coaches with real fight experience",
+      icon: <Dumbbell className="w-6 h-6" />,
+      text: "Multiple training disciplines in one place",
       delay: "0.1s"
     },
     {
       icon: <Target className="w-6 h-6" />,
-      text: "Personalized training plans for your goals",
+      text: "Goal-focused personalized programs",
       delay: "0.2s"
     },
     {
-      icon: <Zap className="w-6 h-6" />,
-      text: "Full cage, mats, and pro-grade equipment",
+      icon: <Heart className="w-6 h-6" />,
+      text: "Nutrition and lifestyle coaching",
       delay: "0.3s"
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      text: "Track your progress and skill development",
+      text: "Progress tracking and regular assessments",
       delay: "0.4s"
     },
     {
-      icon: <Activity className="w-6 h-6" />,
-      text: "Strength & conditioning programs included",
+      icon: <Trophy className="w-6 h-6" />,
+      text: "Train with a professional MMA fighter",
       delay: "0.5s"
     }
   ];
@@ -361,10 +356,10 @@ const ProgramSection = () => {
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Fighter Development Program</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Complete Training Programs</h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            From your first jab to your first fight. A complete system designed to transForm 
-            beginners into confident fighters in just 8 weeks.
+            From beginner to advanced. Whether you want to compete, get fit, or build strength, 
+            we have a program designed for your success.
           </p>
         </div>
 
@@ -436,8 +431,8 @@ const PricingSection = () => {
         "Level Test (video): A test to measure your fitness level at the start of the program",
         "Subscription Freeze: An option to freeze your subscription for 2 months",
         "Zoom Meetings: 4 Zoom meetings during the month (30 minutes each)",
-        "Workout With Captain: A live workout session with Captain Mostafa Said",
-        "Preparing: Preparation for tournaments and training in different positions"
+        "Workout With Coach: A live workout session with Coach Mostafa",
+        "Preparing: Preparation for competitions and advanced training techniques"
       ],
       delay: "0.2s"
     },
@@ -475,13 +470,13 @@ const PricingSection = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="inline-block bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full text-red-400 font-semibold mb-4">
-            💪 MEMBERSHIP PLANS
+            💪 TRAINING PACKAGES
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">Fighter Path</span>
+            Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">Training Plan</span>
           </h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Select the perfect plan to kickstart your MMA journey. From beginner to pro fighter.
+            Select the perfect package to start your transformation journey. All packages include personalized coaching.
           </p>
         </div>
 
@@ -568,13 +563,13 @@ const Footer = () => {
     {
       name: 'Facebook',
       icon: <Facebook className="w-6 h-6" />,
-      url: 'https://www.facebook.com/share/1F1J6Yc9ZA/', // غير اللينك بتاعك
+      url: 'https://www.facebook.com/share/1F1J6Yc9ZA/',
       color: 'hover:text-blue-500'
     },
     {
       name: 'Instagram',
       icon: <Instagram className="w-6 h-6" />,
-      url: 'https://www.instagram.com/mahmoudninja97/', // غير اللينك بتاعك
+      url: 'https://www.instagram.com/mahmoudninja97/',
       color: 'hover:text-pink-500'
     },
     {
@@ -584,7 +579,7 @@ const Footer = () => {
           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
         </svg>
       ),
-      url: 'http://tiktok.com/@mahmoud.erfan53', // غير اللينك بتاعك
+      url: 'http://tiktok.com/@mahmoud.erfan53',
       color: 'hover:text-white'
     }
   ];
@@ -599,20 +594,21 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Flame className="w-8 h-8 text-red-500" />
-              <span className="text-xl font-bold">NINGA <span className="text-red-500">MMA</span></span>
+              <span className="text-xl font-bold">NINGA <span className="text-red-500">TRAINING</span></span>
             </div>
             <p className="text-zinc-400">
-              Train like a champion. Fight like a warrior. Live like a legend.
+              Professional coaching. Proven results. Transform your body and mind with expert guidance.
             </p>
           </div>
           
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-zinc-400">
-              <li><a href="#services" className="hover:text-red-500 transition">Training</a></li>
-              <li><a href="#program" className="hover:text-red-500 transition">Programs</a></li>
-              <li><a href="#pricing" className="hover:text-red-500 transition">Pricing</a></li>
+              <li><a href="#services" className="hover:text-red-500 transition">MMA Training</a></li>
+              <li><a href="#services" className="hover:text-red-500 transition">CrossFit</a></li>
+              <li><a href="#services" className="hover:text-red-500 transition">Personal Training</a></li>
+              <li><a href="#services" className="hover:text-red-500 transition">Strength & Conditioning</a></li>
             </ul>
           </div>
 
@@ -635,7 +631,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`bg-zinc-800 p-3 rounded-full transition-all duration-300 transForm hover:scale-110 ${social.color}`}
+                  className={`bg-zinc-800 p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${social.color}`}
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -650,7 +646,7 @@ const Footer = () => {
 
         {/* Bottom Copyright */}
         <div className="border-t border-zinc-800 pt-8 text-center text-zinc-500">
-          <p>&copy; 2025 NINGA MMA. All rights reserved. Train Hard. Fight Smart.</p>
+          <p>&copy; 2025 NINGA Training. All rights reserved. Train Hard. Get Results.</p>
         </div>
       </div>
     </footer>
@@ -664,7 +660,6 @@ export default function NINGAMMALanding() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // بعد 3 ثواني، الـ loading يختفي
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -690,33 +685,33 @@ export default function NINGAMMALanding() {
           @keyframes slideInLeft {
             from {
               opacity: 0;
-              transForm: translateX(-50px);
+              transform: translateX(-50px);
             }
             to {
               opacity: 1;
-              transForm: translateX(0);
+              transform: translateX(0);
             }
           }
 
           @keyframes slideInRight {
             from {
               opacity: 0;
-              transForm: translateX(50px);
+              transform: translateX(50px);
             }
             to {
               opacity: 1;
-              transForm: translateX(0);
+              transform: translateX(0);
             }
           }
 
           @keyframes slideDown {
             from {
               opacity: 0;
-              transForm: translateY(-20px);
+              transform: translateY(-20px);
             }
             to {
               opacity: 1;
-              transForm: translateY(0);
+              transform: translateY(0);
             }
           }
 
@@ -744,10 +739,8 @@ export default function NINGAMMALanding() {
         <ServicesSection />
         <ProblemSolutionSection />
         <ProgramSection />
-        <PricingSection />  {/* <-- ضيف السيكشن هنا */}
+        <PricingSection />
         <Footer />
-        
-
         <WhatsAppButton />
       </div>
     </>

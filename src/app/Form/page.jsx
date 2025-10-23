@@ -31,9 +31,9 @@ const FormNavbar = () => {
           </Link>
           
           <div className="hidden md:flex gap-8">
-            <Link href="/#services" className="hover:text-red-500 transition">Training</Link>
+            <Link href="/#services" className="hover:text-red-500 transition">Services</Link>
             <Link href="/#program" className="hover:text-red-500 transition">Programs</Link>
-            <Link href="/#testimonials" className="hover:text-red-500 transition">Fighters</Link>
+            <Link href="/#testimonials" className="hover:text-red-500 transition">About</Link>
             <Link href="/#contact" className="hover:text-red-500 transition">Contact</Link>
           </div>
 
@@ -54,9 +54,9 @@ const FormNavbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-zinc-900 border-t border-zinc-800">
           <div className="px-4 py-6 space-y-4">
-            <Link href="/#services" className="block hover:text-red-500 transition">Training</Link>
+            <Link href="/#services" className="block hover:text-red-500 transition">Services</Link>
             <Link href="/#program" className="block hover:text-red-500 transition">Programs</Link>
-            <Link href="/#testimonials" className="block hover:text-red-500 transition">Fighters</Link>
+            <Link href="/#testimonials" className="block hover:text-red-500 transition">About</Link>
             <Link href="/#contact" className="block hover:text-red-500 transition">Contact</Link>
             <Link href="/" className="flex items-center gap-2 justify-center w-full bg-zinc-800 hover:bg-zinc-700 px-6 py-2 rounded-full font-semibold transition">
               <ArrowLeft className="w-4 h-4" />
@@ -88,13 +88,13 @@ export default function FormPage() {
 
         <div className="max-w-4xl mx-auto relative z-10 text-center mb-8">
           <div className="inline-block bg-red-500/20 backdrop-blur-sm border border-red-500/30 px-4 py-2 rounded-full text-red-400 font-semibold mb-6">
-            🥊 Start Your Journey
+            💪 Start Your Training Journey
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Join <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">NINGA MMA</span>
+            Join <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">NINGA Training</span>
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Fill out the form below to start your MMA training journey. We'll contact you within 24 hours.
+            Fill out the form below to begin your transformation. We'll contact you within 24 hours to discuss your goals.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export default function FormPage() {
               <iframe 
                 src="https://docs.google.com/forms/d/e/1FAIpQLSe7lP8ka_ZCbdlxZI5MZn4nQtxKaKOSTuH7n24ozAnaO4ablQ/viewform?embedded=true"
                 className="absolute top-0 left-0 w-full h-full border-0"
-                title="NINGA MMA Registration Form"
+                title="NINGA Training Registration Form"
               >
                 Loading…
               </iframe>
@@ -121,7 +121,6 @@ export default function FormPage() {
             <p className="text-zinc-400 mb-4">
               Need help? Contact us directly
             </p>
-
           </div>
         </div>
       </section>
@@ -131,10 +130,10 @@ export default function FormPage() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Flame className="w-6 h-6 text-red-500" />
-            <span className="text-lg font-bold">NINGA <span className="text-red-500">MMA</span></span>
+            <span className="text-lg font-bold">NINGA <span className="text-red-500">TRAINING</span></span>
           </div>
           <p className="text-zinc-500">
-            &copy; 2025 NINGA MMA. All rights reserved. Train Hard. Fight Smart.
+            &copy; 2025 NINGA Training. All rights reserved. Train Hard. Get Results.
           </p>
         </div>
       </footer>
