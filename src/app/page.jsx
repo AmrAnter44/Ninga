@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity, MessageCircle } from 'lucide-react';
+import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity, MessageCircle, Facebook, Instagram } from 'lucide-react';
 import heroImage from '../../public/bg.png';
 import Image from 'next/image';
 import SplashScreen from './SplashScreen';
+import Link from 'next/link';
 
 // ============================================
 // SCROLL ANIMATION HOOK
@@ -72,7 +73,7 @@ const WhatsAppButton = () => {
       <div className="absolute inset-0 bg-red-400 rounded-full animate-ping opacity-75"></div>
       
       {/* الأيقونة */}
-      <MessageCircle className="w-7 h-7 text-white relative z-10 group-hover:scale-110 transition-transform" />
+      <MessageCircle className="w-7 h-7 text-white relative z-10 group-hover:scale-110 transition-transForm" />
       
       {/* الـ tooltip */}
       <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-zinc-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -115,9 +116,9 @@ const Navbar = () => {
             <a href="#contact" className="hover:text-red-500 transition">Contact</a>
           </div>
 
-          <button className="hidden md:block bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition transform hover:scale-105">
+          <Link href="/Form" className="hidden md:block bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition transForm hover:scale-105">
             Join Now
-          </button>
+          </Link>
 
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -135,9 +136,9 @@ const Navbar = () => {
             <a href="#program" className="block hover:text-red-500 transition">Programs</a>
             <a href="#testimonials" className="block hover:text-red-500 transition">Fighters</a>
             <a href="#contact" className="block hover:text-red-500 transition">Contact</a>
-            <button className="w-full bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition">
+            <Link href="/Form" className="w-full bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition">
               Join Now
-            </button>
+            </Link >
           </div>
         </div>
       )}
@@ -177,10 +178,10 @@ const HeroSection = () => {
           </h1>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-slideInLeft" style={{animationDelay: '0.4s'}}>
-            <button className="bg-red-500 hover:bg-red-600 px-8 py-4 mt-60 rounded-full font-semibold text-lg flex items-center justify-center gap-2 transition group transform hover:scale-105">
+            <Link href="/Form" className="bg-red-500 hover:bg-red-600 px-8 py-4 mt-60 rounded-full font-semibold text-lg flex items-center justify-center gap-2 transition group transForm hover:scale-105">
               Start Training
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transForm" />
+            </Link>
 
           </div>
         </div>
@@ -243,7 +244,7 @@ const ServicesSection = () => {
               }`}
               style={{transitionDelay: isVisible ? service.delay : '0s'}}
             >
-              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
+              <div className="text-6xl mb-4 group-hover:scale-110 transition-transForm">
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold mb-3">{service.title}</h3>
@@ -362,7 +363,7 @@ const ProgramSection = () => {
         }`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Fighter Development Program</h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            From your first jab to your first fight. A complete system designed to transform 
+            From your first jab to your first fight. A complete system designed to transForm 
             beginners into confident fighters in just 8 weeks.
           </p>
         </div>
@@ -384,19 +385,10 @@ const ProgramSection = () => {
           ))}
         </div>
 
-        <div className={`bg-gradient-to-r from-red-500 to-orange-500 p-1 rounded-2xl max-w-3xl mx-auto transition-all duration-1000 ${
+        <div className={`bg-gradient-to-r from-red-500 to-red-800 p-1 rounded-2xl max-w-3xl mx-auto transition-all duration-1000 ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
         }`} style={{transitionDelay: '0.6s'}}>
-          <div className="bg-zinc-900 p-8 rounded-2xl text-center">
-            <h3 className="text-2xl font-bold mb-4">Ready to Step Into The Ring?</h3>
-            <p className="text-zinc-400 mb-6">
-              Join our next Fighter Development cohort. Limited spots available. 
-              Start your MMA journey with the best coaches in the game.
-            </p>
-            <button className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 px-8 py-4 rounded-full font-semibold text-lg transition transform hover:scale-105">
-              Claim Your Spot
-            </button>
-          </div>
+
         </div>
       </div>
     </section>
@@ -541,13 +533,13 @@ const PricingSection = () => {
                 </ul>
 
                 {/* CTA Button */}
-                <button className={`w-full py-4 rounded-full font-bold text-lg transition-all duration-300 transform group-hover:scale-105 ${
+                <Link href='/Form' className={`text-center w-full py-4 rounded-full font-bold text-lg transition-all duration-300 transform group-hover:scale-105 ${
                   plan.isPopular
                     ? 'bg-white text-black hover:bg-zinc-200 shadow-lg'
                     : 'bg-zinc-900 border-2 border-zinc-700 hover:border-red-500 hover:bg-zinc-800'
                 }`}>
                   SUBSCRIBE NOW
-                </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -557,12 +549,7 @@ const PricingSection = () => {
         <div className={`text-center mt-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`} style={{transitionDelay: '0.6s'}}>
-          <p className="text-zinc-400 mb-4">
-            Not sure which plan is right for you? Let's talk about your goals.
-          </p>
-          <button className="bg-transparent border-2 border-red-500 hover:bg-red-500 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
-            Schedule Free Consultation
-          </button>
+
         </div>
       </div>
     </section>
@@ -577,12 +564,38 @@ const PricingSection = () => {
 const Footer = () => {
   const [ref, isVisible] = useScrollAnimation();
 
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      icon: <Facebook className="w-6 h-6" />,
+      url: 'https://www.facebook.com/share/1F1J6Yc9ZA/', // غير اللينك بتاعك
+      color: 'hover:text-blue-500'
+    },
+    {
+      name: 'Instagram',
+      icon: <Instagram className="w-6 h-6" />,
+      url: 'https://www.instagram.com/mahmoudninja97/', // غير اللينك بتاعك
+      color: 'hover:text-pink-500'
+    },
+    {
+      name: 'TikTok',
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+        </svg>
+      ),
+      url: 'http://tiktok.com/@mahmoud.erfan53', // غير اللينك بتاعك
+      color: 'hover:text-white'
+    }
+  ];
+
   return (
     <footer id="contact" className="py-12 px-4 bg-zinc-900 border-t border-zinc-800" ref={ref}>
       <div className="max-w-7xl mx-auto">
-        <div className={`grid md:grid-cols-3 gap-8 mb-8 transition-all duration-1000 ${
+        <div className={`grid md:grid-cols-4 gap-8 mb-8 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
+          {/* Logo & Description */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Flame className="w-8 h-8 text-red-500" />
@@ -593,32 +606,56 @@ const Footer = () => {
             </p>
           </div>
           
+          {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-zinc-400">
               <li><a href="#services" className="hover:text-red-500 transition">Training</a></li>
               <li><a href="#program" className="hover:text-red-500 transition">Programs</a></li>
-              <li><a href="#testimonials" className="hover:text-red-500 transition">Fighters</a></li>
+              <li><a href="#pricing" className="hover:text-red-500 transition">Pricing</a></li>
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-zinc-400">
-              <li>Email: info@NINGAmma.com</li>
-              <li>Phone: +1 (555) MMA-FIGHT</li>
-              <li>Location: Fight District, Your City</li>
+              <li>Phone: 01155013756</li>
+              <li>WhatsApp Available</li>
             </ul>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <h4 className="font-semibold mb-4">Follow Us</h4>
+            <div className="flex gap-4">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`bg-zinc-800 p-3 rounded-full transition-all duration-300 transForm hover:scale-110 ${social.color}`}
+                  aria-label={social.name}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+            <p className="text-zinc-500 text-sm mt-4">
+              Join our community and stay updated! 💪
+            </p>
           </div>
         </div>
 
+        {/* Bottom Copyright */}
         <div className="border-t border-zinc-800 pt-8 text-center text-zinc-500">
           <p>&copy; 2025 NINGA MMA. All rights reserved. Train Hard. Fight Smart.</p>
         </div>
       </div>
     </footer>
   );
-};
+}
 
 // ============================================
 // MAIN APP COMPONENT
@@ -653,33 +690,33 @@ export default function NINGAMMALanding() {
           @keyframes slideInLeft {
             from {
               opacity: 0;
-              transform: translateX(-50px);
+              transForm: translateX(-50px);
             }
             to {
               opacity: 1;
-              transform: translateX(0);
+              transForm: translateX(0);
             }
           }
 
           @keyframes slideInRight {
             from {
               opacity: 0;
-              transform: translateX(50px);
+              transForm: translateX(50px);
             }
             to {
               opacity: 1;
-              transform: translateX(0);
+              transForm: translateX(0);
             }
           }
 
           @keyframes slideDown {
             from {
               opacity: 0;
-              transform: translateY(-20px);
+              transForm: translateY(-20px);
             }
             to {
               opacity: 1;
-              transform: translateY(0);
+              transForm: translateY(0);
             }
           }
 
