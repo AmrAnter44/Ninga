@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity, MessageCircle, Facebook, Instagram, Dumbbell, Heart, Trophy } from 'lucide-react';
 import heroImage from '../../public/bg.png';
+import secbg from '../../public/secbg.jpg';
+import secbgtwo from '../../public/secbgtwo.webp';
 import Image from 'next/image';
 import SplashScreen from './SplashScreen';
 import Link from 'next/link';
@@ -105,7 +107,7 @@ const Navbar = () => {
           <div className="hidden md:flex gap-8">
             <a href="#services" className="hover:text-red-500 transition">Services</a>
             <a href="#program" className="hover:text-red-500 transition">Programs</a>
-            <a href="#packages" className="hover:text-red-500 transition">Packages</a>
+            <a href="#testimonials" className="hover:text-red-500 transition">About</a>
             <a href="#contact" className="hover:text-red-500 transition">Contact</a>
           </div>
 
@@ -259,8 +261,21 @@ const ProblemSolutionSection = () => {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section className="py-20 px-4 overflow-hidden" ref={ref}>
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 px-4 overflow-hidden relative" ref={ref}>
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src={secbg}
+          alt="Training Background"
+          fill
+          className="object-cover"
+        />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/80"></div>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className={`space-y-6 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
@@ -279,7 +294,7 @@ const ProblemSolutionSection = () => {
             </p>
           </div>
 
-          <div className={`bg-gradient-to-br from-red-500/20 to-orange-500/20 p-8 rounded-2xl border border-red-500/30 space-y-6 transition-all duration-1000 ${
+          <div className={`bg-gradient-to-br from-red-500/20 to-orange-500/20 p-8 rounded-2xl border border-red-500/30 space-y-6 transition-all duration-1000 backdrop-blur-sm ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
           }`} style={{transitionDelay: '0.2s'}}>
             <div className="inline-block bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full text-red-400 font-semibold">
@@ -455,7 +470,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="packages" className="py-20 px-4 bg-zinc-900/50 relative overflow-hidden" ref={ref}>
+    <section id="pricing" className="py-20 px-4 bg-zinc-900/50 relative overflow-hidden" ref={ref}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -545,6 +560,136 @@ const PricingSection = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`} style={{transitionDelay: '0.6s'}}>
 
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ============================================
+// PERSONAL TRAINING LOCATION SECTION
+// ============================================
+const PersonalTrainingSection = () => {
+  const [ref, isVisible] = useScrollAnimation();
+
+  const locations = [
+    {
+      icon: <Dumbbell className="w-12 h-12" />,
+      title: "Train at a Gym",
+      description: "Meet your coach at a fully-equipped gym with all the necessary equipment for comprehensive training sessions.",
+      features: ["Professional Equipment", "Comfortable Environment", "Privacy Options"]
+    },
+    {
+      icon: <Target className="w-12 h-12" />,
+      title: "Martial Arts Facility",
+      description: "Train at a specialized martial arts center with MMA cages, mats, and striking equipment for authentic fight training.",
+      features: ["MMA Cage & Mats", "Striking Equipment", "Sparring Area"]
+    }
+  ];
+
+  return (
+    <section className="py-20 px-4 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src={secbgtwo}
+          alt="Training Location"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/85"></div>
+      </div>
+
+      {/* Background Pattern Overlay */}
+      <div className="absolute inset-0 z-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} ref={ref}>
+          <div className="inline-block bg-red-500/20 backdrop-blur-sm border border-red-500/30 px-4 py-2 rounded-full text-red-400 font-semibold mb-6">
+            🥊 IN-PERSON TRAINING
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Train <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">Face-to-Face</span> With Your Coach
+          </h2>
+          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            Take your training to the next level with personalized, in-person coaching sessions. 
+            Choose your preferred training location.
+          </p>
+        </div>
+
+        {/* Location Cards */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {locations.map((location, index) => (
+            <div
+              key={index}
+              className={`bg-zinc-900/70 backdrop-blur-sm border border-zinc-700 rounded-3xl p-8 hover:border-red-500 transition-all duration-500 group ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+              style={{transitionDelay: isVisible ? `${index * 0.2}s` : '0s'}}
+            >
+              {/* Icon */}
+              <div className="text-red-500 mb-6 group-hover:scale-110 transition-transform">
+                {location.icon}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-4">{location.title}</h3>
+
+              {/* Description */}
+              <p className="text-zinc-400 text-lg mb-6">{location.description}</p>
+
+              {/* Features */}
+              <ul className="space-y-3">
+                {location.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                    <span className="text-zinc-300">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Key Benefits */}
+        <div className={`bg-gradient-to-br from-red-500/20 to-orange-500/20 backdrop-blur-sm border border-red-500/30 rounded-3xl p-8 mb-12 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        }`} style={{transitionDelay: '0.4s'}}>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-red-400 text-4xl font-bold mb-2">1-on-1</div>
+              <p className="text-zinc-300">Personal Attention</p>
+            </div>
+            <div className="text-center">
+              <div className="text-red-400 text-4xl font-bold mb-2">100%</div>
+              <p className="text-zinc-300">Customized Sessions</p>
+            </div>
+            <div className="text-center">
+              <div className="text-red-400 text-4xl font-bold mb-2">Expert</div>
+              <p className="text-zinc-300">Professional Coaching</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className={`text-center transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{transitionDelay: '0.6s'}}>
+          <Link href="/Form" className="inline-flex items-center gap-3 bg-red-500 hover:bg-red-600 px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-red-500/20">
+            Book Your Session Now
+            <ArrowRight className="w-6 h-6" />
+          </Link>
+          <p className="text-zinc-400 mt-4">
+            Fill out the form and we'll discuss the best location for your training goals
+          </p>
         </div>
       </div>
     </section>
@@ -740,6 +885,7 @@ export default function NINGAMMALanding() {
         <ProblemSolutionSection />
         <ProgramSection />
         <PricingSection />
+        <PersonalTrainingSection />
         <Footer />
         <WhatsAppButton />
       </div>
