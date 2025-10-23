@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Flame, Target, Users, Award, ArrowRight, CheckCircle, Star, Zap, Calendar, TrendingUp, Shield, Activity, MessageCircle, Facebook, Instagram, Dumbbell, Heart, Trophy } from 'lucide-react';
-import heroImage from '../../public/bg.png';
-import secbg from '../../public/secbg.jpg';
+import heroImage from '../../public/bg.webp';
+import secbg from '../../public/secbg.webp';
 import secbgtwo from '../../public/secbgtwo.webp';
 import Image from 'next/image';
 import SplashScreen from './SplashScreen';
@@ -271,7 +271,7 @@ const ProblemSolutionSection = () => {
           className="object-cover"
         />
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       {/* Content */}
@@ -294,7 +294,7 @@ const ProblemSolutionSection = () => {
             </p>
           </div>
 
-          <div className={`bg-gradient-to-br from-red-500/20 to-orange-500/20 p-8 rounded-2xl border border-red-500/30 space-y-6 transition-all duration-1000 backdrop-blur-sm ${
+          <div className={` bg-black/60  p-8 rounded-2xl border border-red-500/30 space-y-6 transition-all duration-1000 backdrop-blur-sm ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
           }`} style={{transitionDelay: '0.2s'}}>
             <div className="inline-block bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full text-red-400 font-semibold">
@@ -597,7 +597,7 @@ const PersonalTrainingSection = () => {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/85"></div>
+        <div className="absolute inset-0 bg-black/65"></div>
       </div>
 
       {/* Background Pattern Overlay */}
