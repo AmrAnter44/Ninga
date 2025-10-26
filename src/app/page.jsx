@@ -446,7 +446,7 @@ const PricingSection = () => {
         "Level Test (video): A test to measure your fitness level at the start of the program",
         "Subscription Freeze: An option to freeze your subscription for 2 months",
         "Zoom Meetings: 4 Zoom meetings during the month (30 minutes each)",
-        "Workout With Coach: A live workout session with Coach Mostafa",
+        "Workout With Coach: A live workout session with Ninga",
         "Preparing: Preparation for competitions and advanced training techniques"
       ],
       delay: "0.2s"
@@ -457,7 +457,7 @@ const PricingSection = () => {
       price: "2500 LE",
       isPopular: false,
       features: [
-        "Follow-up: Daily follow-up for all inquiries via WhatsApp",
+        "Follow-up for 3 days on all inquiries through WhatsApp",
         "Training Program: A customized training program via videos",
         "Nutrition Plan: The nutrition plan is updated every 15 days",
         "Nutritional Supplements: Recommendations and discounts on supplements (optional)",
