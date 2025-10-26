@@ -106,8 +106,8 @@ const Navbar = () => {
           
           <div className="hidden md:flex gap-8">
             <a href="#services" className="hover:text-red-500 transition">Services</a>
-            <a href="#program" className="hover:text-red-500 transition">Programs</a>
-            <a href="#testimonials" className="hover:text-red-500 transition">About</a>
+            <a href="#Why" className="hover:text-red-500 transition"> Why Ninga </a>
+            <a href="#pricing" className="hover:text-red-500 transition">Pricing</a>
             <a href="#contact" className="hover:text-red-500 transition">Contact</a>
           </div>
 
@@ -129,7 +129,7 @@ const Navbar = () => {
           <div className="px-4 py-6 space-y-4">
             <a href="#services" className="block hover:text-red-500 transition">Services</a>
             <a href="#program" className="block hover:text-red-500 transition">Programs</a>
-            <a href="#testimonials" className="block hover:text-red-500 transition">About</a>
+            <a href="#pricing" className="block hover:text-red-500 transition">Pricing</a>
             <a href="#contact" className="block hover:text-red-500 transition">Contact</a>
             <Link href="/Form" className="w-full bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full font-semibold transition block text-center">
               Start Training
@@ -261,7 +261,7 @@ const ProblemSolutionSection = () => {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section className="py-20 px-4 overflow-hidden relative" ref={ref}>
+    <section id="Why" className="py-20 px-4 overflow-hidden relative" ref={ref}>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image 
@@ -617,7 +617,7 @@ const PersonalTrainingSection = () => {
             🥊 IN-PERSON TRAINING
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Train <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">Face-to-Face</span> With Your Coach
+            Train <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">One-To-One</span> With Your Coach
           </h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Take your training to the next level with personalized, in-person coaching sessions. 
@@ -665,7 +665,7 @@ const PersonalTrainingSection = () => {
         }`} style={{transitionDelay: '0.4s'}}>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-red-400 text-4xl font-bold mb-2">1-on-1</div>
+              <div className="text-red-400 text-4xl font-bold mb-2">1-To-1</div>
               <p className="text-zinc-300">Personal Attention</p>
             </div>
             <div className="text-center">
