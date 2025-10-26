@@ -423,7 +423,7 @@ const PricingSection = () => {
       price: "1000 LE",
       isPopular: false,
       features: [
-        "Follow-up for 4 days on all inquiries through WhatsApp",
+        "Follow-up for 3 days on all inquiries through WhatsApp",
         "Training Program: A customized training program via videos",
         "Customized Nutrition Plan",
         "Nutritional Supplements: Recommendations and discounts on supplements (optional)",
